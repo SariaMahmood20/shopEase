@@ -1,0 +1,43 @@
+const iconsPath = "assets/svg_icons/";
+
+class SvgIcons{
+  static const String addPromoCode = "${iconsPath}add_promo_code.svg";
+  static const String addToFavorites = "${iconsPath}add_to_favorites.svg";
+  static const String add = "${iconsPath}add.svg";
+  static const String addedToFavorites = "${iconsPath}added_to_favorites.svg";
+  static const String appleLogin = "${iconsPath}apple_login.svg";
+  static const String bad = "${iconsPath}bad.svg";
+  static const String cart = "${iconsPath}cart.svg";
+  static const String close = "${iconsPath}close.svg";
+  static const String contact = "${iconsPath}contact.svg";
+  static const String delivery = "${iconsPath}delivery.svg";
+  static const String drawer = "${iconsPath}drawer.svg";
+  static const String edit = "${iconsPath}edit.svg";
+  static const String emailNotification = "${iconsPath}email_notification.svg";
+  static const String filter = "${iconsPath}filter.svg";
+  static const String fullScreen = "${iconsPath}full_screen.svg";
+  static const String good = "${iconsPath}good.svg";
+  static const String googleSignIn = "${iconsPath}google_login.svg";
+  static const String instagram = "${iconsPath}instagram.svg";
+  static const String listView = "${iconsPath}list_view.svg";
+  static const String location = "${iconsPath}location.svg";
+  static const String logo = "${iconsPath}logo.svg";
+  static const String nextPage = "${iconsPath}next_page.svg";
+  static const String normal = "${iconsPath}normal.svg";
+  static const String order = "${iconsPath}order.svg";
+  static const String password = "${iconsPath}password.svg";
+  static const String paymentSuccessful = "${iconsPath}payment_successful.svg";
+  static const String previousPage = "${iconsPath}previous_page.svg";
+  static const String pageNotFound = "${iconsPath}page_not_found.svg";
+  static const String profile = "${iconsPath}profile.svg";
+  static const String ratings = "${iconsPath}ratings.svg";
+  static const String save = "${iconsPath}save.svg";
+  static const String search = "${iconsPath}search.svg";
+  static const String settings = "${iconsPath}settings.svg";
+  static const String share = "${iconsPath}share.svg";
+  static const String shippingAddress = "${iconsPath}shipping_address.svg";
+  static const String showMore = "${iconsPath}show_more.svg";
+  static const String twitterLogin = "${iconsPath}twitter_login.svg";
+  static const String twitter = "${iconsPath}twitter.svg";
+  static const String youtube = "${iconsPath}youtube.svg";
+}
