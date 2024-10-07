@@ -23,10 +23,4 @@ class UserProfileViewModel with ChangeNotifier {
       setUserProfile(ApiResponse.failed(error.toString()));
     });
   }
-
-  @override
-  void dispose() {
-    //
-    super.dispose();
-  }
 }
