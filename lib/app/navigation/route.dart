@@ -16,7 +16,7 @@ class Routes {
       case RouteName.login:
         return MaterialPageRoute(builder: (BuildContext context) => const LoginScreen());
       case RouteName.home:
-        return MaterialPageRoute(builder: (BuildContext context)=> const HomeScreen());
+        return MaterialPageRoute(builder: (BuildContext context)=> HomeScreen());
       case RouteName.register:
         return MaterialPageRoute(builder: (BuildContext context)=>const RegisterScreen());
       default:
