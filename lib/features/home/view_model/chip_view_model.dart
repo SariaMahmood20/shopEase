@@ -1,48 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:shop_ease/app/repository/product_repo.dart';
+import 'package:shop_ease/app/services/response/status.dart';
 import 'package:shop_ease/app/models/products_model.dart';
 import 'package:shop_ease/app/services/response/api_response.dart';
 
 class ChipViewModel with ChangeNotifier {
-  final ProductRepository _productRepo = ProductRepository();
 
-  // Categories and products list
-  List<String> _categories = [];
-  List<ProductModel> _products = [];
-  List<ProductModel> _filteredProducts = [];
+  final ProductRepository productRepo = ProductRepository() ;
 
-  // API Response state
-  ApiResponse<List<ProductModel>> _productResponse = ApiResponse.loading();
+  ApiResponse<List<ProductModel>> productList = ApiResponse.loading();
 
-  // Getters
-  List<String> get categories => _categories;
-  List<ProductModel> get filteredProducts => _filteredProducts;
-  ApiResponse<List<ProductModel>> get productResponse => _productResponse;
+  String selectedCategory = "All";
 
-  // Fetch products and categories from repository
-  Future<void> fetchProductsAndCategories() async {
-    _productResponse = ApiResponse.loading();
+
+  Future<void> fetchProducts() async{
+    productList = ApiResponse.loading();
     notifyListeners();
-
-    try {
-      // Fetch products from repository
-      _products = (await _productRepo.fetchProducts()) as List<ProductModel>; // This should now return List<ProductModel>
-      _categories = _products.map((product) => product.category).toSet().cast<String>().toList();
-      _filteredProducts = _products; // Initially set all products as filtered
-      _productResponse = ApiResponse.completed(_products); // Completed with List<ProductModel>
-    } catch (e) {
-      _productResponse = ApiResponse.failed(e.toString());
+    try{
+      final products = await productRepo.fetchProducts();
+      productList = ApiResponse.completed(products);
+    }catch(error){
+      productList = ApiResponse.failed(error.toString());
     }
-
-    notifyListeners();
   }
 
-  // Filter products based on category
-  void filterProductsByCategory(String category) {
-    if (category == "All") {
-      _filteredProducts = _products;
-    } else {
-      _filteredProducts = _products.where((product) => product.category == category).toList();
+  void selectCategory(String category){
+    selectedCategory = category;
+
+    if(productList.status == Status.completed && productList.data != null){
+      if(category == "All"){
+        productList = ApiResponse.completed(productList.data);
+      }else{
+        List<ProductModel> filteredProducts =  productList.data!.where((product)=>product.category.name.toString() == category.toUpperCase()).toList();
+        productList = ApiResponse.completed(filteredProducts);
+      }
     }
     notifyListeners();
   }
