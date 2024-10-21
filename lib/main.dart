@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:shop_ease/app/navigation/route.dart';
 import 'package:shop_ease/app/navigation/route_name.dart';
 import 'package:shop_ease/app/resources/app_theme.dart';
+import 'package:shop_ease/app/view_models/product_view_model.dart';
 import 'package:shop_ease/app/view_models/user_profile_view_model.dart';
 import 'package:shop_ease/features/auth/view_model/auth_view_model.dart';
 
@@ -24,7 +25,8 @@ class MyApp extends StatelessWidget {
         return MultiProvider(
           providers: [
             ChangeNotifierProvider(create: (_)=>AuthViewModel()),
-            ChangeNotifierProvider(create: (_)=>UserProfileViewModel())
+            ChangeNotifierProvider(create: (_)=>UserProfileViewModel()),
+            ChangeNotifierProvider(create: (_)=>ProductViewModel())
             ],
           child: MaterialApp(
           theme: lightTheme,

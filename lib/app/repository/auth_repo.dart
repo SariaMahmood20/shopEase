@@ -1,9 +1,9 @@
-
 import 'package:shop_ease/app/services/network_services/network_api_services.dart';
 import 'package:shop_ease/app/services/network_services/base_api_service.dart';
 import 'package:shop_ease/app/constants/api_endpoints.dart';
 
 class AuthRepo{
+
   final BaseApiService _apiService = NetworkApiServices();
   Future<dynamic> loginApi(dynamic data) async{
     try{
